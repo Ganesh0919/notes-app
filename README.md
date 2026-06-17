@@ -173,35 +173,6 @@ notes-app/
 
 ---
 
-## Deployment
-
-### Backend → Render
-
-1. Push repo to GitHub
-2. [Render](https://render.com) → New **Web Service** → connect repo
-3. Root directory: `backend`
-4. Build: `npm install && npm run build`
-5. Start: `npm start`
-6. Environment variables:
-   - `DATABASE_URL` — Neon connection string
-   - `CORS_ORIGIN` — your Vercel URL (e.g. `https://notes-app.vercel.app`)
-   - `PORT` — Render sets this automatically
-
-### Frontend → Vercel
-
-1. [Vercel](https://vercel.com) → Import repo
-2. Root directory: `frontend`
-3. Environment variable:
-   - `VITE_API_URL` — `https://your-api.onrender.com/api`
-
-### Database → Neon
-
-1. Create project at [neon.tech](https://neon.tech)
-2. Copy connection string to `DATABASE_URL`
-3. Tables are created automatically on first backend start
-
----
-
 ## Testing Approach
 
 - **Backend:** Integration tests with Supertest against the Express app (health, CRUD, validation). Requires `DATABASE_URL` for full run; skips DB tests when unset.
